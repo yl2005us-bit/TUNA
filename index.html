@@ -20,7 +20,8 @@
     </script>
 
     <!-- 3. 引入 Babel (讓瀏覽器可以執行 React/JSX) -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- 修改: 固定 Babel 版本為 7.23.6 以解決 targets["esmodules"] 錯誤 -->
+    <script src="https://unpkg.com/@babel/standalone@7.23.6/babel.min.js"></script>
     
     <style>
         /* 自定義捲軸樣式 */
@@ -956,7 +957,6 @@
                             <div className="flex space-x-3 items-center">
                                 <div className="flex flex-col items-end">
                                     {(!isStepValid && !isSubmitting) && (
-                                        // 修改: 加入 onClick={goNext} 和 cursor-pointer 讓文字可點擊
                                         <div 
                                             onClick={goNext}
                                             className="hidden md:flex items-center text-orange-600 text-sm font-bold mb-1 animate-bounce w-full justify-end cursor-pointer"
@@ -994,7 +994,6 @@
                                         </button>
                                     </div>
                                     {!isStepValid && (
-                                        // 修改: 加入 onClick={goNext} 和 cursor-pointer 讓文字可點擊 (手機版)
                                         <div 
                                             onClick={goNext}
                                             className="md:hidden flex items-center text-orange-600 text-xs font-bold mt-1 animate-pulse cursor-pointer"
